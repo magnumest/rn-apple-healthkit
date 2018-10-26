@@ -303,7 +303,7 @@
                                       }];
 }
 
-- (void)fitness_getSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+- (void)fitness_getWorkoutSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
 {
     NSUInteger limit = [RCTAppleHealthKit uintFromOptions:input key:@"limit" withDefault:HKObjectQueryNoLimit];
     BOOL ascending = [RCTAppleHealthKit boolFromOptions:input key:@"ascending" withDefault:false];
@@ -326,10 +326,10 @@
         }
     };
     
-    [self fetchSamplesForPredicate: predicate
-                        ascending:ascending
-                            limit:limit
-                        completion:completion];
+    [self fetchWorkoutSamplesForPredicate:predicate
+                                ascending:ascending
+                                    limit:limit
+                               completion:completion];
 }
 
 @end

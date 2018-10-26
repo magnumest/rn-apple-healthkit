@@ -481,10 +481,10 @@
     [self.healthStore executeQuery:query];
 }
 
-- (void)fetchSamplesForPredicate: (NSPredicate *)predicate
-                       ascending: (BOOL)ascending
-                           limit:(NSUInteger)limit
-                      completion:(void (^)(NSArray *, NSError *))completion {
+- (void)fetchWorkoutSamplesForPredicate:(NSPredicate *)predicate
+                              ascending:(BOOL)ascending
+                                  limit:(NSUInteger)limit
+                             completion:(void (^)(NSArray *, NSError *))completion {
     
     void (^handlerBlock)(HKSampleQuery *query, NSArray *results, NSError *error);
     NSSortDescriptor *endDateSortDescriptor = [[NSSortDescriptor alloc] initWithKey:HKSampleSortIdentifierEndDate ascending:ascending];
