@@ -65,10 +65,10 @@
                                    limit:(NSUInteger)lim
                                    completion:(void (^)(NSArray *, NSError *))completion;
 
-- (void)fetchSamplesForPredicate: (NSPredicate *)predicate
-           ascending: (BOOL)ascending
-               limit:(NSUInteger)limit
-                      completion:(void (^)(NSArray *, NSError *))completion;
+- (void)fetchWorkoutSamplesForPredicate:(NSPredicate *)predicate
+                              ascending:(BOOL)ascending
+                                  limit:(NSUInteger)limit
+                             completion:(void (^)(NSArray *, NSError *))completion;
 
 - (void)fetchCholesterolForPredicate: (NSPredicate *)predicate
                        ascending: (BOOL)ascending
