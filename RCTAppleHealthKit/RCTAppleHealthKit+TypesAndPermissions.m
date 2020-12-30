@@ -14,11 +14,18 @@
 #pragma mark - HealthKit Permissions
 
 - (nullable HKObjectType *)getReadPermFromText:(nonnull NSString*)key {
+    UIDevice *deviceInfo = [UIDevice currentDevice];
+    float systemVersion = deviceInfo.systemVersion.floatValue;
+
     // Characteristic Identifiers
-    if ([@"Height" isEqualToString: key]) {
+    if ([@"DateOfBirth" isEqualToString: key]) {
+        return [HKObjectType characteristicTypeForIdentifier:HKCharacteristicTypeIdentifierDateOfBirth];
+    }else if ([@"Height" isEqualToString: key]) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeight];
     }else if ([@"Weight" isEqualToString: key]) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyMass];
+    }else if ([@"BiologicalSex" isEqualToString: key]) {
+        return [HKObjectType characteristicTypeForIdentifier:HKCharacteristicTypeIdentifierBiologicalSex];
     }
 
     // Body Measurements
@@ -80,7 +87,7 @@
 
     // Sleep
     if ([@"SleepAnalysis" isEqualToString: key]) {
-        return [HKObjectType quantityTypeForIdentifier:HKCategoryTypeIdentifierSleepAnalysis];
+        return [HKObjectType categoryTypeForIdentifier:HKCategoryTypeIdentifierSleepAnalysis];
     }
 
     // workouts
@@ -88,9 +95,11 @@
         return [HKObjectType workoutType];
     }
 
-    // MindfulSession
-    if ([@"MindfulSession" isEqualToString: key]) {
+    // workouts
+    if ([@"MindfulSession" isEqualToString: key] && systemVersion >= 10.0) {
         return [HKObjectType categoryTypeForIdentifier:HKCategoryTypeIdentifierMindfulSession];
+    } else if ([@"MindfulSession" isEqualToString: key]){
+        return [HKObjectType workoutType];
     }
 
     // Cholesterol
@@ -102,6 +111,8 @@
 }
 
 - (nullable HKObjectType *)getWritePermFromText:(nonnull NSString*) key {
+
+
     // Body Measurements
     if([@"Height" isEqualToString:key]) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeight];

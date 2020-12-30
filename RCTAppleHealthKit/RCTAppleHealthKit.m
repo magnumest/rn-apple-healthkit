@@ -251,14 +251,14 @@ RCT_EXPORT_METHOD(getInfo:(NSDictionary *)input callback:(RCTResponseSenderBlock
     [self getModuleInfo:input callback:callback];
 }
 
-RCT_EXPORT_METHOD(getMindfulSessionSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
-{
-    [self mindfulness_getMindfulSessionSamples:input callback:callback];
-}
-
 RCT_EXPORT_METHOD(saveMindfulSession:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
     [self mindfulness_saveMindfulSession:input callback:callback];
+}
+
+RCT_EXPORT_METHOD(getMindfulSession:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self mindfulness_getMindfulSession:input callback:callback];
 }
 
 RCT_EXPORT_METHOD(getWorkoutSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
