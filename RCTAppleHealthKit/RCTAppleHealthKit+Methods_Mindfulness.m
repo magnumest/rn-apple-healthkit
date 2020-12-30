@@ -37,7 +37,7 @@
 
 }
 
-- (void)mindfulness_getMindfulSession:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+- (void)mindfulness_getMindfulSessionSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
 {
     NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
     NSDate *endDate = [RCTAppleHealthKit dateFromOptions:input key:@"endDate" withDefault:[NSDate date]];

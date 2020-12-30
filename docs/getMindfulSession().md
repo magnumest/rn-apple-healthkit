@@ -9,7 +9,7 @@ let options = {
 ```
 
 ```javascript
-AppleHealthKit.getMindfulSession(options, (err: string, results: Object) => {
+AppleHealthKit.getMindfulSessionSamples(options, (err: string, results: Object) => {
   if (err) {
     console.log("error getting mindful session: ", err);
     return;

@@ -24,7 +24,7 @@ declare module "rn-apple-healthkit" {
 
         getLatestWeight(options: HealthUnitOptions, callback: (err: string, results: HealthValue) => void): void;
 
-        getMindfulSession(options: MindfulSessionData, callback: (err: string, results: HealthValue) => void): void;
+        getMindfulSessionSamples(options: MindfulSessionData, callback: (err: string, results: HealthValue) => void): void;
 
         getStepCount(options: any, callback: (err: string, results: HealthValue) => void): void;
     }
